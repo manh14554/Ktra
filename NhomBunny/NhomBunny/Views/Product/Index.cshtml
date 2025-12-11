@@ -1,0 +1,33 @@
+﻿@model List<NhomBunny.Models.Product>
+<h1>Product List - dev</h1>
+
+<h2>Danh sách sản phẩm</h2>
+
+<a class="btn btn-primary mb-3" href="/Product/Create">Thêm sản phẩm</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Ảnh</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Name</td>
+                <td>@p.Price.ToString("N0") đ</td>
+                <td><img src="@p.Image" width="80" /></td>
+                <td>
+                    <a class="btn btn-warning" href="/Product/Edit/@p.Id">Sửa</a>
+                    <a class="btn btn-danger" href="/Product/Delete/@p.Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
